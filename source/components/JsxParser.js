@@ -50,7 +50,7 @@ export default class JsxParser extends Component {
       case 'JSXText':
         return this.props.disableFragments
           ? expression.value
-          : <Fragment key={randomHash()}>{expression.value}</Fragment>
+          : <Fragment>{expression.value}</Fragment>
       case 'JSXAttribute':
         if (expression.value === null) return true
         return this.parseExpression(expression.value)
@@ -174,7 +174,7 @@ export default class JsxParser extends Component {
       }
     }
 
-    const props = { key: randomHash() }
+    const props = { }
     attributes.forEach((expr) => {
       if (expr.type === 'JSXAttribute') {
         const rawName = expr.name.name
